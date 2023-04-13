@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <h1>Registrate your bank account</h1>
+    <textarea name="Name" id="txt1"></textarea>
+    <textarea name="Login" id="txt2"></textarea>
+    <textarea name="Password" id="txt3"></textarea>
+    <textarea name="bill1" id="txt4"></textarea>
+    <textarea name="bill2" id="txt5"></textarea>
+    <button id="btn1">Log on</button>
+    <button id="btn2">Show</button>
+    </div>
+
+    <div>
+    <h1>Login in your bank account</h1>
+    <textarea name="Login" id="txt2"></textarea>
+    <textarea name="Password" id="txt3"></textarea>
+    <textarea name="bill1" id="txt4"></textarea>
+    <textarea name="bill2" id="txt5"></textarea>
+    <button id="btn1">Log in</button>
+    </div>
+    <script>
+        let spend=[]
+        let out=[]
+        let balance = []
+        class Person{
+            constructor(name,password,bill1,bill2){
+                this.name=name
+                this.password=password
+                this.bill1=bill1
+                this.bill2=bill2
+            }
+            addspend(value){
+                spend.push(value1)
+            }
+            paymentot(value){
+                out.push(value)
+            }
+            CheckBalance(){
+                for(let i=0;i<out.length;i++){
+                    for(let j=0;i<spend.length;i++){
+                        balance.push=0+out[i]+spend[j]
+                    }
+                }
+            }
+        }
+        let character = new Person("name","password","bill1","bill2")
+        </script>
+</body>
+</html>
