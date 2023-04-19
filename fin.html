@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="Login" id="txt1">Login</textarea>
+    <textarea name="Password" id="txt2">Password</textarea>
+    <textarea name="MainBill" id="txt3">1Bill</textarea>
+    <textarea name="SecondBill" id="txt4">2Bill</textarea>
+    <button id="btn1">Log on</button>
+    <button id="btn2">Show</button>
+    <script>
+    
+        class User{
+  constructor(name,password,MainBill,SecondBill){
+    this.name=name
+    this.password=password
+    this.MainBill=MainBill
+    this.SecondBill=SecondBill
+  }
+}
+class SecondBill{
+  constructor(balance){
+    this.balance=balance
+  }
+  
+  addMoney(amount){
+    this.balance+=amount
+  }
+  
+  payout(amount){
+    this.balance-=amount
+  }
+}
+
+class MainBill{
+  constructor(balance){
+    this.balance=balance
+  }
+  
+  addMoney(amount){
+    this.balance+=amount
+  }
+  
+  payout(amount){
+    this.balance-=amount
+  }
+}
+
+class HomeBudget {
+  constructor() {
+    this.users = []
+    this.currentUser = null;
+  }
+
+    register(name, password, mainBalance, secondBalance) {
+        if (!this.users.find(user => user.name === name)) {
+        const user = new User(name, password, new MainBill(mainBalance), new SecondBill(secondBalance));
+        this.users.push(user);
+        return true;
+        }
+        return false;
+    }
+
+  login(name, password) {
+    const user = this.users.find(user => user.name === name && user.password === password);
+    if (user) {
+      this.currentUser = user;
+      return true;
+    }
+    return false;
+  }
+
+  addMainIncome(amount) {
+    this.currentUser.MainBill.addMoney(amount);
+  }
+
+  addMainExpense(amount) {
+    this.currentUser.MainBill.payout(amount);
+  }
+
+  addSecondIncome(amount) {
+    this.currentUser.SecondBill.addMoney(amount);
+  }
+
+  addSecondExpense(amount) {
+    this.currentUser.SecondBill.payout(amount);
+  }
+
+  getMainBalance() {
+    return this.currentUser.MainBill.balance;
+  }
+
+  getSecondBalance() {
+    return this.currentUser.SecondBill.balance;
+  }
+}
+const budget = new HomeBudget();
+budget.register("user1", "password1", 1000, 500);
+budget.login("user1", "password1");
+budget.addMainExpense(100);
+budget.addSecondIncome(200);
+console.log(budget.getMainBalance()); // 900
+console.log(budget.getSecondBalance()); // 700
+
+const loginInput = document.getElementById("txt1");
+const passwordInput = document.getElementById("txt2");
+const mainBillInput = document.getElementById("txt3");
+const secondBillInput = document.getElementById("txt4");
+
+const registerBtn = document.getElementById("btn1");
+registerBtn.addEventListener("click", () => {
+  const name = loginInput.value;
+  const password = passwordInput.value;
+  const mainBalance = parseInt(mainBillInput.value);
+  const secondBalance = parseInt(secondBillInput.value);
+  budget.register(name, password, mainBalance, secondBalance);
+});
+    </script>
+</body>
+</html>
