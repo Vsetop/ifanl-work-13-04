@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <textarea name="Login" id="txt1">Login</textarea>
+    <textarea name="Password" id="txt2">Password</textarea>
+    <textarea name="MainBill" id="txt3">1Bill</textarea>
+    <textarea name="SecondBill" id="txt4">2Bill</textarea>
+    <button id="btn1">Log on</button>
+    <p>
+      <textarea name="Login" id="txt5">Login</textarea>
+      <textarea name="Password" id="txt6">Password</textarea>
+      <button id="btn2">Show</button>
+    </p>
+    <script>
+  class User{
+  constructor(name,password,MainBill,SecondBill){
+    this.name=name
+    this.password=password
+    this.MainBill=MainBill
+    this.SecondBill=SecondBill
+  }}
+
+class SecondBill{
+  constructor(balance){
+    this.balance1=balance1
+  }
+  
+  addMoney(amount){
+    this.balance1+=amount
+  }
+  
+  payout(amount){
+    this.balance1-=amount
+  }
+  addSecondExpense(amount) {
+    this.currentUser.SecondBill.payout(amount);
+  }
+  addSecondIncome(amount) {
+    this.currentUser.SecondBill.addMoney(amount);
+  }
+  getSecondBalance() {
+    return this.currentUser.SecondBill.balance;
+  }
+}
+
+class MainBill{
+  constructor(balance){
+    this.balance2=amount
+  }
+  
+  addMoney(amount){
+    this.balance2+=amount
+  }
+  
+  payout(amount){
+    this.balance2-=amount
+  }
+  addMainIncome(amount) {
+    this.currentUser.MainBill.addMoney(amount);
+  }
+  addMainExpense(amount) {
+    this.currentUser.MainBill.payout(amount);
+  }
+  getMainBalance() {
+    return this.currentUser.MainBill.balance;
+  }}
+  let arr = []
+    let btn1 =document.getElementById("btn1")
+    let btn2 =document.getElementById("btn2")
+    btn1.onclick =function(){
+        if(txt1.value===''){
+        alert("Этого пользователя нельзя зарегестрировать ")
+        }
+        if(document.getElementById('txt2').value.length >=4 && document.getElementById('txt2').value.length <=12)   {
+        console.log("пороль подходит")
+        }else{
+        console.log("не подходит")
+        }
+            for(let x=0;x<arr.length;x+=2){
+            if(txt1.value===arr[x]){
+                console.log("Имя уже занято")
+                return
+                }else{
+                console.log("Имя подходит")
+                }}
+                  arr.push(txt1.value)
+                  arr.push(txt2.value)
+                  }
+  let v = document.getElementById('txt5')
+  btn2.onclick =function(){
+  for(let c=0;c<arr.length;c+2){
+    if(v=arr[c]){
+      console.log("Такой пользователь существует")
+      console.log(arr)
+      break
+      }else{
+      console.log("Надо зарегестрировать пользователя")
+      }}}
+
+let spend = []
+function getRandomInt(min, max) {
+return Math.floor(Math.random() * (max - min)) + min;
+}
+for(h=0;h<12;h++){
+let g = getRandomInt(10000, 25000)
+spend.push(g)
+}
+console.log(spend)
+let income = []
+
+function getRandomInt(min, max) {
+return Math.floor(Math.random() * (max - min)) + min;
+}
+for(h=0;h<12;h++){
+let g = getRandomInt(10000, 25000)
+income.push(g)
+}
+console.log(income)
+  </script>
+</body>
+</html>
